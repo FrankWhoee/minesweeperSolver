@@ -16,3 +16,8 @@ You can use the game framework to make your own minesweeper solver, just write y
    3. If `revealCoord` is a `MINE`, we fail
    4. If `revealCoord` is `HIDDEN`, we reveal adjacent cells recursively up to cells that are non-zero.
 6. For every `flagCoord` in `flags` toggle the cell's `flag` status unless it is already revealed, then we fail.
+
+### Future Work
+1. Current generator is naive, I plan to implement the autosolver in the generator so that the generated grid is always deterministically solveable.
+2. Add a solver that doesn't fail if there are multiple possibilities, and picks the higher probability
+3. Add a command line argument or something that enables human solving
