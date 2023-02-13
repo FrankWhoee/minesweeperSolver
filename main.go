@@ -1,8 +1,15 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"math/rand"
+	"time"
+)
 
 func main() {
+	seed := time.Now().UnixNano()
+	rand.Seed(seed)
+
 	n := 9
 	playerBoard := createGrid(n, n)
 	solution := generateGrid(n)

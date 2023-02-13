@@ -2,13 +2,10 @@ package main
 
 import (
 	"math/rand"
-	"time"
 )
 
 // naive generator, does not check for uniqueness of solution
 func generateGrid(n int) [][]int {
-	seed := time.Now().UnixNano()
-	rand.Seed(seed)
 	rows := n
 	cols := n
 	grid := createGrid(rows, cols)
