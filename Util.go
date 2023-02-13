@@ -12,7 +12,7 @@ func printGrid(grid [][]int) {
 		fmt.Printf("%d  ", r)
 		for c := 0; c < len(grid[0]); c++ {
 			if grid[r][c] == FLAG {
-				fmt.Printf("⍌")
+				fmt.Printf("◈")
 			} else if grid[r][c] == MINE {
 				fmt.Printf("✸")
 			} else if grid[r][c] == HIDDEN {

@@ -36,6 +36,13 @@ func main() {
 			return
 		}
 
+		for _, revealCoord := range actions[0] {
+			if playerBoard[revealCoord[0]][revealCoord[1]] != HIDDEN {
+				fmt.Printf("Tried to reveal a tile (%d,%d) but it was already %s\n", revealCoord[0], revealCoord[1], constMap[playerBoard[revealCoord[0]][revealCoord[1]]])
+				return
+			}
+		}
+
 		for i, revealCoord := range actions[0] {
 			// Generate a (sort of) playable board at the start
 			if turn == 0 && i == 0 {
@@ -61,9 +68,6 @@ func main() {
 
 			if playerBoard[revealCoord[0]][revealCoord[1]] == HIDDEN {
 				recursiveFill(playerBoard, solution, revealCoord[0], revealCoord[1])
-			} else {
-				fmt.Printf("Tried to reveal an already revealed tile: (%d,%d) \n", revealCoord[0], revealCoord[1])
-				//return
 			}
 		}
 		for _, flagCoord := range actions[1] {

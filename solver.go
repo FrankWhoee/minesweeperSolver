@@ -79,10 +79,6 @@ func autoSolve(grid [][]int) [2][][]int {
 	fmt.Println(reveals)
 	fmt.Println(flags)
 
-	//if len(revealSet) == 0 {
-	//	return autoSolve(grid)
-	//}
-
 	return [2][][]int{reveals, flags}
 }
 
