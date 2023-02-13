@@ -2,11 +2,12 @@ package main
 
 import (
 	"math/rand"
+	"time"
 )
 
 // naive generator, does not check for uniqueness of solution
 func generateGrid(n int) [][]int {
-	//rand.Seed(time.Now().UnixNano())
+	rand.Seed(time.Now().UnixNano())
 	rows := n
 	cols := n
 	grid := createGrid(rows, cols)
@@ -23,12 +24,9 @@ func generateGrid(n int) [][]int {
 		for c := 0; c < rows; c++ {
 			if grid[r][c] == 0 {
 				count := 0
-
-				for dr := -1; dr <= 1; dr++ {
-					for dc := -1; dc <= 1; dc++ {
-						if (dc != 0 || dr != 0) && c+dc >= 0 && c+dc < cols && r+dr >= 0 && r+dr < rows && grid[r+dr][c+dc] == MINE {
-							count += 1
-						}
+				for _, adjCoord := range getValidAdjacentCells(grid, r, c) {
+					if grid[adjCoord[0]][adjCoord[1]] == MINE {
+						count += 1
 					}
 				}
 				grid[r][c] = count
